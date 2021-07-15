@@ -1,28 +1,18 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="app">
+    <div class="todo-wrapper">
+      <app-header></app-header>
+      <todo-input v-on:todo:add="addTodo"></todo-input>
+      <todo-item
+        v-for="todo in todos"
+        v-bind:todo="todo"
+        v-on:todo:remove="removeTodo"
+        v-bind:key="todo.id"
+      ></todo-item>
+    </div>
   </div>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+<script src="./app.js"></script>
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style src="./app.css"></style>
